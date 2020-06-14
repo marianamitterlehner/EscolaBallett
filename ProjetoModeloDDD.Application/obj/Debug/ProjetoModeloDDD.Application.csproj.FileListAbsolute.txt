@@ -1,0 +1,4 @@
+C:\Users\Rafael\Desktop\Projeto\ProjetoModeloDDD.Application\bin\Debug\ProjetoModeloDDD.Application.dll
+C:\Users\Rafael\Desktop\Projeto\ProjetoModeloDDD.Application\bin\Debug\ProjetoModeloDDD.Application.pdb
+C:\Users\Rafael\Desktop\Projeto\ProjetoModeloDDD.Application\obj\Debug\ProjetoModeloDDD.Application.dll
+C:\Users\Rafael\Desktop\Projeto\ProjetoModeloDDD.Application\obj\Debug\ProjetoModeloDDD.Application.pdb
