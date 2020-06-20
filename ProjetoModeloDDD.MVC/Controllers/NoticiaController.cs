@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using ProjetoModeloDDD.Application.Interface;
 using ProjetoModeloDDD.Domain.Entities;
-using ProjetoModeloDDD.Infra.Data.Repositories;
 using ProjetoModeloDDD.MVC.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -12,11 +12,16 @@ namespace ProjetoModeloDDD.MVC.Controllers
 {
     public class NoticiaController : Controller
     {
-        private readonly NoticiaRepository _noticiaRepository = new NoticiaRepository();
+        private readonly INoticiaAppService _noticiaApp;
+
+        public NoticiaController(INoticiaAppService noticiaApp)
+        {
+            _noticiaApp = noticiaApp;
+        }
         // GET: Noticia
         public ActionResult Index()
         {
-            var noticia = Mapper.Map<IEnumerable<Noticia>, IEnumerable<NoticiaViewModel>>(_noticiaRepository.GetAll());
+            var noticia = Mapper.Map<IEnumerable<Noticia>, IEnumerable<NoticiaViewModel>>(_noticiaApp.GetAll());
             return View(noticia);
         }
         // GET: Noticia/Details/5

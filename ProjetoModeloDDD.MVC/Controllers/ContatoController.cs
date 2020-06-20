@@ -4,48 +4,61 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
+using ProjetoModeloDDD.Application.Interface;
 using ProjetoModeloDDD.Domain.Entities;
-using ProjetoModeloDDD.Infra.Data.Repositories;
 using ProjetoModeloDDD.MVC.ViewModels;
 
 namespace ProjetoModeloDDD.MVC.Controllers
 {
     public class ContatoController : Controller
     {
-        private readonly ContatoRepository _contatoRepository = new ContatoRepository();
+        private readonly IContatoAppService _contatoApp;
+
+        public ContatoController(IContatoAppService contatoApp)
+        {
+            _contatoApp = contatoApp;
+        }
         // GET: Contato
         public ActionResult Index()
         {
-            var contatoViewModel = Mapper.Map<IEnumerable<Contato>, IEnumerable<ContatoViewModel>>(_contatoRepository.GetAll());
+            var contatoViewModel = Mapper.Map<IEnumerable<Contato>, IEnumerable<ContatoViewModel>>(_contatoApp.GetAll());
             return View(contatoViewModel);
         }
 
         // GET: Contato/Details/5
         public ActionResult Details(int id)
         {
+            var contato = Mapper.Map<Contato, ContatoViewModel>(_contatoApp.GetById(id));
+
             return View();
         }
 
         // GET: Contato/Create
         public ActionResult Create()
         {
+
             return View();
         }
 
         // POST: Contato/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(ContatoViewModel viewModel)
         {
-            try
-            {
-                // TODO: Add insert logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
+            if (ModelState.IsValid)
             {
-                return View();
+                try
+                {
+                    var contato = Mapper.Map<ContatoViewModel, Contato>(viewModel);
+                    _contatoApp.Add(contato);
+                    return RedirectToAction("Index");
+                }
+                catch(Exception ex)
+                {
+                    throw;
+                }
             }
+                return View();
         }
 
         // GET: Contato/Edit/5

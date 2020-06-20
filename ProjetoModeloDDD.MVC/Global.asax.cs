@@ -1,3 +1,4 @@
+using Ninject;
 using ProjetoModeloDDD.MVC.AutoMapper;
 using System;
 using System.Collections.Generic;
@@ -20,5 +21,6 @@ namespace ProjetoModeloDDD.MVC
 
             AutoMapperConfig.RegisterMappings();
         }
+
     }
 }

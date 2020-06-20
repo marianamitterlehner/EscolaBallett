@@ -7,4 +7,3 @@ C:\Users\Rafael\Desktop\Projeto\ProjetoModeloDDD.Domain\bin\Debug\ProjetoModeloD
 C:\Users\Rafael\Desktop\Projeto\ProjetoModeloDDD.Domain\bin\Debug\ProjetoModeloDDD.Domain.pdb
 C:\Users\Rafael\Desktop\Projeto\ProjetoModeloDDD.Domain\obj\Debug\ProjetoModeloDDD.Domain.dll
 C:\Users\Rafael\Desktop\Projeto\ProjetoModeloDDD.Domain\obj\Debug\ProjetoModeloDDD.Domain.pdb
-C:\Users\Rafael\Desktop\Projeto\ProjetoModeloDDD.Domain\obj\Debug\ProjetoModeloDDD.Domain.csprojAssemblyReference.cache
